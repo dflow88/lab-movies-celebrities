@@ -1,0 +1,24 @@
+
+{{#with movies}}
+<h2>{{title}}</h2>
+    <br/>
+    <br/>
+    <p>Genre: {{genre}}</p>
+    <p>Plot: {{plot}}</p>
+    <p>Cast:</p>
+{{/with}}
+
+{{#each movies.cast}}
+    <h5>{{name}}</h5>
+    <p>Occupation: {{occupation}}. Catch phrase: {{catchPhrase}}.</p>
+{{/each}}
+
+{{#with movies}}
+<form method="get" action="/movies/{{this._id}}/edit">
+    <button type="submit">Edit movie</button>
+</form>
+<br/>
+<form method="post" action="/movies/{{this._id}}/delete">
+    <button type="submit">Delete movie</button>
+</form>
+{{/with}}
